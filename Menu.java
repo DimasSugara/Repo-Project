@@ -50,5 +50,4 @@ public void panggilMenu() {
 		System.out.println("| "+(i+1)+"  |"+" " + menuMinuman[i][0] + "\t|"+"Rp." + menuMinuman[i][1]+" |" );
 		};
 	}
-
 }
