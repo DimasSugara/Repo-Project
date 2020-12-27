@@ -94,7 +94,6 @@ public void cetakStruk(Kasir kasir1 ,Pelanggan p1) {
 			System.out.println("Uang Anda   : Rp."+uang);
 			System.out.println("kembalian   : Rp."+kembalian);
 			System.out.println("\n");
-		}
-		
+		}	
 	}	
 }
