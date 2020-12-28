@@ -4,12 +4,20 @@ public class main {
 
 	public static void main(String[] args) {
 		int pilihan;
-		Scanner inputt = new Scanner(System.in); 
+		Scanner inputt = new Scanner(System.in);
 		Scanner input = new Scanner(System.in);
+		Pelayan pel1 = new Pelayan();
+		Koki koki1 = new Koki();
+		Kasir kasir1= new Kasir();
 		int status=0;
 		System.out.println("=====================================");
 		System.out.println("    SELAMAT DATANG DI RESTORAN ! ");
-		System.out.println("=====================================");		
+		System.out.println("=====================================");
+		Pelanggan p1 = new Pelanggan();
+		System.out.print("Nama Pengunjung : ");
+		p1.nama = input.nextLine();
+		System.out.print("Nomor Telepon   : ");
+		p1.kontak = input.nextLine();
 		
 		do {
 			pel1.delay();
@@ -23,20 +31,56 @@ public class main {
 			System.out.println("=====================================");
 			pilihan = inputt.nextInt();
 			try {
-				if (pilihan==1) { //Pelayan
-				
+				if (pilihan==1) {
+					System.out.println("=====================================");
+					status = 1;
+					pel1.setPelayan("Budi", "01");
+					p1.panggilPelayan();
+					System.out.println(pel1.getNamaPel());
+					System.out.println("=====================================");
 				}
-				else if (pilihan ==2 && status == 1 ) { //Meja
-				
+				else if (pilihan ==2 && status == 1 ) {
+					System.out.println("=====================================");
+					Meja meja1 = new Meja();
+					status = 2;
+					meja1.daftarMeja();
+					p1.pilihMeja(kasir1,meja1);
+					System.out.println("=====================================");
 				}
-				else if (pilihan ==3 && status ==2) { // Makanan/ Minuman
-				
+				else if (pilihan ==3 && status ==2) {
+					System.out.println("=====================================");
+					status = 3;																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																		status = 3;
+					Menu menu = new Menu();
+					menu.panggilMenu();
+					System.out.println("=====================================");
+					p1.pilihMenu(kasir1, menu);
+					p1.pesanan(kasir1);
+					System.out.println("=====================================");
+
 				}
-				else if (pilihan ==4 && status == 3 ) { // Konfirmasi
-				
+				else if (pilihan ==4 && status == 3 ) {
+					System.out.println("=====================================");
+					status=4;
+					pel1.terimaPesanan(p1,kasir1);
+					p1.menungguPesanan();
+					pel1.delay();
+					pel1.laporMenu();
+					pel1.delay();
+					koki1.memasakMakanan(p1,kasir1);
+					System.out.println("=====================================");
+					pel1.delayMasak();
+					koki1.pesananSiap();//delay
+					System.out.println("=====================================");
 				}		
-				else if (pilihan ==5 && status == 4 ) { // Pembayaran
-				
+				else if (pilihan ==5 && status == 4 ) {
+					System.out.println("=====================================");
+					status=5;
+					kasir1.setKasir("Maya", "021");
+					kasir1.rincianBayar(kasir1,p1);
+					kasir1.pembayaran();
+					kasir1.cetakStruk(kasir1,p1);
+					System.out.println("=====================================");
+					continue;
 				}		
 				else if(pilihan == 6) {
 					System.in.close();
@@ -44,11 +88,10 @@ public class main {
 				else {
 					System.out.println("Lakukan secara berurut!");
 				}
-			} 
+			}
 			catch(Exception ex) {
 				System.out.println("Silahkan Pilih sesuai nomor yang tersedia!");
 			}
-		}
-		while (pilihan != 6);
+		} while (pilihan != 6);
 	}
 }
