@@ -1,0 +1,80 @@
+Kelompok Gatau:
+CEO :Dimas Rendy Sugara (1908107010040)
+Anggota :- MISBAH ALVARIZ (1908107010006)
+	 - SRI ULINA RAFTAINI (1908107010012)
+ 	 - TM ZAHIRSYAH (1908107010008)
+	 - WALIAM MURSYIDA (1908107010015)
+
+				PENJELASAN PROGRAM RESTORAN GATAU
+1. Deskripsi Produk
+Sebuah hotel bintang lima di kota Banda Aceh memiliki restoran makanan yang mewah.
+Pihak Hotel ingin memudahkan pengunjung restoran dengan membayar seorang programmer untuk
+membuat sebuah aplikasi "restoran makanan" pada restoran mereka. Maka dengan adanya aplikasi
+restoran makanan, pengunjung dapat melakukan proses seperti: registrasi pelanggan, proses memilih
+meja, proses memilih menu, proses pembayaran , proses cetak struk dan proses selesai. Dengan
+tampilan aplikasi yang sederhana namun menarik membuat pengunjung restoran lebih mudah
+memesan dan dapat menggugah selera makan :).
+
+
+2. List Fitur dan System Requirement
+a. System Requirement
+>> Sistem resto menyediakan tampilan userface untuk mengakses layanan restoran secara
+komplit.
+>> Pengguna dapat memilih, mencari, memesan dan menyesuaikan beberapa layanan pada
+aplikasi, seperti Memilih Meja, mencari meja yang kosong, memesan makanan, ataupun
+menyesuaikan meja yang dipesan.
+>> Sistem mencatat pesanan yang ditelah diinput oleh pengunjung restoran
+b. List Fitur
+>> Proses Rgistrasi Pelanggan
+>> Proses Pilih Meja
+>> Proses Memilih Menu
+>> Proses Pembayaran
+>> Proses Cetak Struk
+>> Proses Selesai
+
+penjelasan singkat tentang code :
+a. Class Koki
+pada class koki terdapat method public void memasakMakanan(Pelanggan p1,Kasir kasir1) 
+{
+yang brfungsi untuk memasukkan nilai dari class pelanggan dan kasir
+
+b. class pelayan
+pada class ini terdapat method constructor,accesor dan muthator.
+dan juga terdapat Exception Handling yang berfungsi untuk untuk menangani error runtime.
+
+c. class pelanggan
+- terdapat method untuk memanggil pelayan
+- juga method pilih meja. 
+didalam method pilihMeja terdapat exception dan conditional statement
+selanjutnya terdapat method pilih menu sama hal nya denga method pilih meja, pada pilihan menu juga terdapat exception dan conditional statement.
+dan terdapat method pesanan dimana pesanan pelanggan akan dikirim ke kasir.pada method ini disebut sebagai tahap konfirmasi.
+
+d. class kasir
+– List makanan yang sudah dipesan dan total harga, dan juga pelanggan membayar sejumlah total harga, apabila uang yang dimasukan kurang dari total harga, pelanggan tidak bisa menyelesaikan pembayaran sampai jumlah uang yan dibayarkan sesuai dengan total harga
+pada class kasir terdapat import io.filewrite dimana berfungsi untuk menulis bentuk txt 
+juga terdapat import io.PrintWriter dimana file yang telah dibentuk atau ditulis dalam bentuk txt bisa dicetak.
+
+selanjutnya terdapat method constructor,accesor dan muthator. 
+pada method:
+public void cetakStruk(Kasir kasir1 ,Pelanggan p1) {
+		
+		try{
+			   File data = new File("struk.txt");
+			   PrintWriter pr = new PrintWriter(new FileWriter(data,false));
+			   
+berfungsi untuk mencetak dan menulis file dalam txt nya.
+
+d. class struk
+pada kelas ini berfungsi mencetak struk.
+
+e. class main
+tahapan yang terjadi pada kelas ini adalah:
+- pelanggan datang lalu melakukan registrasi
+- selanjutnya pelanggan memanggil pelayan
+- dan melakukan pemilihan meja
+- selanjutnya pelanggan akan memilih menu makanan dan minuman sesuai yang tertera pada menu
+- setelah itu pelanggan akan melakukan konfirmasi
+- jika pesanan sudah terkonfirmasi maka koki akan membuat pesanan
+- lalu langkah terakhir pelanggan setelah menikmati makanan akan melakukan pembayaran dan akan mencetak struk 
+
+ 
